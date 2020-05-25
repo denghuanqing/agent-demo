@@ -30,3 +30,6 @@ run com.poppy.agentmain.AgentTargetSample#main()
 run com.poppy.agentmain.AgentmainAttachMain#main()
 ```
 
+# reference
+[instrumentation 功能介绍](https://my.oschina.net/robinyao/blog/489767)
+[Javassist中文技术文档](https://www.cnblogs.com/scy251147/p/11100961.html)

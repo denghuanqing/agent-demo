@@ -44,8 +44,12 @@ public class WebTransformer implements ClassFileTransformer {
         CtMethod method = ctClass.getDeclaredMethod("service", params);
 
         method.insertBefore("com.poppy.webmonitor.HttpUtils.begin($args);");
-        // class not found【com.poppy.webmonitor.HttpUtils】
-        classPool.get("com.poppy.webmonitor.HttpUtils").toClass(loader); // resolve
+        /**
+         * class not found【com.poppy.webmonitor.HttpUtils】
+         * why ? because tomcat load class from down to up,but jvm is from up to down
+         * how to solve? add below code let tomcat load this agent class {@link HttpUtils}
+         */
+        classPool.get("com.poppy.webmonitor.HttpUtils").toClass(loader);
         return ctClass.toBytecode();
     }
 }

@@ -26,7 +26,7 @@ public class MyTransformer implements ClassFileTransformer {
          */
         className = className.replace('/', '.');
 
-        // 只处理MyApplication类
+        // 只处理ItemController类
         if (!className.endsWith("ItemController")) {
             return classfileBuffer;
         }
@@ -45,12 +45,12 @@ public class MyTransformer implements ClassFileTransformer {
                     /**
                      * 在方法执行之前加入打印语句
                      */
-                    declaredMethod.insertBefore("System.out.println(\"欧，亲爱的，\");");
+                    declaredMethod.insertBefore("System.out.println(\"=====begin request=====\");");
 
                     /**
                      * 在方法执行之后加入打印语句
                      */
-                    declaredMethod.insertAfter("System.out.println(\"祝你一切安好！\");");
+                    declaredMethod.insertAfter("System.out.println(\"=====finish request=====\");");
                 }
             }
 

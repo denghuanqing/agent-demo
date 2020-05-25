@@ -32,6 +32,15 @@
       <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>com.sun</groupId>
+      <artifactId>tools</artifactId>
+      <version>1.6.0</version>
+      <scope>system</scope>
+      <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
+      <optional>true</optional>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -52,6 +61,7 @@
             <manifestEntries>
               <!-- 值为包含premain方法的类. 启动方式为命令行启动时,javaagent JAR文件清单必须包含 Premain-Class 属性, 代理类必须实现 public static premain()-->
               <Premain-Class>com.poppy.webmonitor.ServletAgent</Premain-Class>
+              <Agent-Class>com.poppy.agentmain.AgentmainAgent</Agent-Class>
               <Can-Redefine-Classes>true</Can-Redefine-Classes>
               <Can-Retransform-Classes>true</Can-Retransform-Classes>
             </manifestEntries>

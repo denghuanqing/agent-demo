@@ -3,7 +3,7 @@ package com.poppy.premain;
 import java.lang.instrument.Instrumentation;
 
 /**
- * @description:
+ * @description: handler bytecode before Application
  * @author: DENGHUANQING1
  * @create: 2020-05-19 19:24
  **/
